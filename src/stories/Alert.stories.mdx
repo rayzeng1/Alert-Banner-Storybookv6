@@ -1,0 +1,76 @@
+
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Alert } from "../Component/Alert";
+import {ACTION_CONTENT, MDX_DESCRIPTION_CONTENT} from '../Component/constants';
+import {text, select, boolean} from '@storybook/addon-knobs';
+import {Button} from '@material-ui/core';
+
+<Meta title = "Component/Alert Banner MDX"
+argTypes = {{
+    severity: {
+      description: 'The severity of the alert. Either success, warning, or error.',
+      control: {
+          type: 'select',
+          options: [
+              'success',
+              'warning',
+              'error',
+          ],
+      },
+  },
+   title: {
+     description: 'The heading of the alert.',
+    control: {
+      type: 'text',
+    },
+  },
+  action: {
+      description: 'A boolean where if true, the action button will appear on the banner.'
+  },
+  onClick: { 
+      action: 'clicked',
+      table: {
+        disable: true,
+      }}
+}}
+/>
+
+
+# Alert
+
+<p>{MDX_DESCRIPTION_CONTENT}</p>
+
+export const Template = (args) => {
+const actionbutton = (actionval) => {
+  if (actionval === true) return (
+    <a href="http://www.google.com" target="_blank"><Button color="primary" variant="contained"> {ACTION_CONTENT} </Button></a>
+  )
+  else return (null)
+}
+actionbutton(args.action);
+return <Alert{...args} action = {actionbutton(args.action)}  />
+}
+
+
+Let's define a story for our 'Alert' component.
+
+<Canvas>
+<Story name="Alert Status Story" args={{
+  title: 'Your order was succesful',
+  severity: 'success',
+  action: boolean('action', true)
+}}>
+  {Template.bind({})}
+</Story>
+</Canvas>
+
+The following is a table of the arguments (props) taken in by the Alert component. 
+
+<ArgsTable story = "Alert Status Story" />
+
+
+
+
+
+
+

@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# This program was created to demonstrate the new features of Storybook v6. These include the introduction of args (arguments), controls, and docs. This was done by using the Alert component that has already been written and creating storybook files of the component. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The new features of storybook enable you to dynamically control UI within the storybook platform. This allows you to test additions or modifications to props without having to re-render the component. 
 
-## Available Scripts
+We can customize the argument types (props) to enable us to the controls feature. Storybook will automatically enable this for booleans. 
 
-In the project directory, you can run:
+This can be seen below, in the export default section. The 'title' is what the component will be called within Storybook. The 'component' is what the story is based off of, which storybook automatically pulls proptypes and descriptions from if they are defined within the component. The argtypes, in this case severity, is followed by a helpful description for testers to see, and the 'control' parameter, which allows the user to select the varying severities, in this case 'success', 'warning', and 'error', and have them dynamically render within Storybook. 
 
-### `npm start`
+# Example Usage
+export default {
+  title: 'Alert Banner',
+  component: Alert,
+  argTypes: {
+   severity: {
+      description: 'The severity of the alert. Either success, warning, or error.',
+      control: {
+          type: 'select',
+          options: [
+              'success',
+              'warning',
+              'error',
+          ],
+      },
+  },
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We create a Template function that destructures the arguments (props) within the Alert component and assign them to the inputs, which are in the Template.args definition.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+export const Template = (args) => {
+actionbutton(args.action);
+return <Alert{...args} action = {actionbutton(args.action)} />
+}
+ 
+Template.args = {
+title: 'Your order was processed',
+severity: 'success',
+action: boolean('action', true)
+}
 
-### `npm test`
+# This is just a template, but you can use the Template.bind({}) function to copy the format and change the args based on what you want to display (different severities, title, etc).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# To run storybook, use npm run storybook command. 
