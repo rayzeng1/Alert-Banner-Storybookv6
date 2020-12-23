@@ -13,7 +13,7 @@
 		---
 		
 
-		### About The Component
+		# About The Component
 		
 
 		This was created to demonstrate the new features of Storybook v6. These include the introduction of args (arguments), controls, and docs. 
@@ -21,7 +21,7 @@
         The new features of storybook enable you to dynamically control UI within the storybook platform. This allows you to test additions or modifications to props without having to re-render the component.
 		
 
-		### Example
+		## Example
 		
 
 		The Alert banner itself was already created. For information on it's use, access its README.md in the component library.
