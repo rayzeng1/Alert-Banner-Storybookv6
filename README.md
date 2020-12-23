@@ -59,4 +59,4 @@ This is just a template, but you can use the Template.bind({}) function to copy 
 		
 
 		
-###This was created using create-react-app and storybook version 6. To run storybook, use npm run storybook. 
+### This was created using create-react-app and storybook version 6. To run storybook, use npm run storybook. 
