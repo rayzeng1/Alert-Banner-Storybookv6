@@ -1,4 +1,13 @@
-        #Alert Banner in Storybook
+        <p align="center">	 
+		<h1 align="center">Alert Banner Component in Storybook v6</h1>
+		
+
+		<p align="center">
+		<br />
+		<a href="">View Demo in Storybook</a>
+		</p>
+		</p>
+
 		
 
 		---
