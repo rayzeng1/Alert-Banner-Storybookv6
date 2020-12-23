@@ -1,12 +1,4 @@
-        <p align="center">	 
-		<h1 align="center">Alert Banner in Storybook v6</h1>
-		
-
-		<p align="center">
-		<br />
-		<a href="">View Demo in Storybook</a>
-		</p>
-		</p>
+        #Alert Banner in Storybook
 		
 
 		---
@@ -15,7 +7,8 @@
 		### About The Component
 		
 
-		This was created to demonstrate the new features of Storybook v6. These include the introduction of args (arguments), controls, and docs. This was done by using the Alert component that has already been written and creating storybook files of the component.
+		This was created to demonstrate the new features of Storybook v6. These include the introduction of args (arguments), controls, and docs. 
+        This was done by using the Alert component that has already been written and creating storybook files of the component.
         The new features of storybook enable you to dynamically control UI within the storybook platform. This allows you to test additions or modifications to props without having to re-render the component.
 		
 
@@ -64,9 +57,6 @@
 		
 
 		### Props Structure
-		
-
-		Provide table structure of all the props for component and if the props is another object then please provide details below in a new table link it
 		
 
 		| Prop | Type | Required | Default |
